@@ -1,16 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col">
-
-      <h1>Bienvenue à Zoauia Dar Lakbira</h1>
-      <p>Find me in app/views/pages/home.html.erb</p>
-
+      <h1>Bienvenue HOME PAGE</h1>
       <% if user_signed_in? %>
-        <p> hello <%= current_user.email %></p>
+        <p> Bienvenue, nous sommes content de vous revoir M. <%= current_user.email %></p>
       <% else %>
         <p>you are not login </p>
       <% end %>
-
     </div>
   </div>
 </div>
