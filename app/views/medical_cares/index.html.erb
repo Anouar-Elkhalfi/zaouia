@@ -1,25 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1> Listes de cabinets médicaux à proximité </h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Note</th>
+            <th>Addresse</th>
+            <th>Numéro de Contact</th>
+          </tr>
+        </thead>
 
-cont
-<h1> Listes de cabinets médicaux à proximité </h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Note</th>
-      <th>Addresse</th>
-      <th>Numéro de Contact</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @medical_cares.each do |medical_care| %>
-      <tr>
-        <td><%= medical_care.name %></td>
-        <td><%= medical_care.rating %></td>
-        <td><%= medical_care.address %></td>
-        <td><%= medical_care.phone %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @medical_cares.each do |medical_care| %>
+            <tr>
+              <td><%= medical_care.name %></td>
+              <td><%= medical_care.rating %></td>
+              <td><%= medical_care.address %></td>
+              <td><%= medical_care.phone %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
