@@ -13,12 +13,18 @@
         </thead>
 
         <tbody>
+          <%# @medical_cares est une collection d'objets MedicalCare %>
+          <%# Vous utilisez une boucle pour itérer sur chaque objet de cette collection %>
           <% @medical_cares.each do |medical_care| %>
             <tr>
+          <%# À l'intérieur de la boucle, chaque objet individuel est référencé par une variable locale,
+          généralement appelée medical_care (ou n'importe quel autre nom que vous choisissez). %>
               <td><%= medical_care.name %></td>
               <td><%= medical_care.rating %></td>
               <td><%= medical_care.address %></td>
               <td><%= medical_care.phone %></td>
+          <%# Ici, medical_care est une variable locale dans le contexte de la boucle each.
+          C'est pourquoi vous n'avez pas besoin du symbole @ devant medical_care %>
             </tr>
           <% end %>
         </tbody>
