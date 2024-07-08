@@ -21,3 +21,11 @@ utilisée dans l'action show et la vue associée %>
   <strong>Phone:</strong>
   <%= @medical_care.phone %>
 </p>
+
+<%= link_to "Delete",
+  medical_care_path(@medical_care),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+
+<%= link_to "back", medical_cares_path %>
+<%= link_to "edit", edit_medical_care_path %>

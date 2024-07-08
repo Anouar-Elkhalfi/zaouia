@@ -1,0 +1,11 @@
+<%= form_with model: medical_care do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+  <%= f.submit %>
+<% end %>

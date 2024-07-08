@@ -17,18 +17,19 @@
           <%# Vous utilisez une boucle pour itérer sur chaque objet de cette collection %>
           <% @medical_cares.each do |medical_care| %>
             <tr>
-          <%# À l'intérieur de la boucle, chaque objet individuel est référencé par une variable locale,
-          généralement appelée medical_care (ou n'importe quel autre nom que vous choisissez). %>
-              <td><%= medical_care.name %></td>
+                  <%# À l'intérieur de la boucle, chaque objet individuel est référencé par une variable locale,
+                  généralement appelée medical_care (ou n'importe quel autre nom que vous choisissez). %>
+              <td><%= link_to medical_care.name, medical_care_path(medical_care) %></td>
               <td><%= medical_care.rating %></td>
               <td><%= medical_care.address %></td>
               <td><%= medical_care.phone %></td>
-          <%# Ici, medical_care est une variable locale dans le contexte de la boucle each.
-          C'est pourquoi vous n'avez pas besoin du symbole @ devant medical_care %>
+                  <%# Ici, medical_care est une variable locale dans le contexte de la boucle each.
+                  C'est pourquoi vous n'avez pas besoin du symbole @ devant medical_care %>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <%= link_to "new medical_care", new_medical_care_path %>
     </div>
   </div>
 </div>
