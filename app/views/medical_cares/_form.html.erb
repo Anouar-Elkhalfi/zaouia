@@ -1,11 +1,9 @@
-<%= form_with model: medical_care do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :rating %>
-  <%= f.number_field :rating %>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
+<!-- app/views/medical_cares/_form.html.erb -->
+<%= simple_form_for(medical_care) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :rating %>
+  <%= f.input :phone %>
   <%= f.submit %>
 <% end %>
+
