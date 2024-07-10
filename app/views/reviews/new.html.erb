@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Reviews#new</h1>
+      <p>Find me in app/views/reviews/new.html.erb</p>
+      <h1>New review</h1>
+      <%= simple_form_for [@medicalcare, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
