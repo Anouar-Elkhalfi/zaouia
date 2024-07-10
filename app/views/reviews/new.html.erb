@@ -4,9 +4,10 @@
       <h1>Reviews#new</h1>
       <p>Find me in app/views/reviews/new.html.erb</p>
       <h1>New review</h1>
-      <%= simple_form_for [@medicalcare, @review] do |f| %>
+      <%= simple_form_for [@medical_care, @review] do |f| %>
         <%= f.input :content %>
         <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <%= link_to "back", medical_care_path(@medical_care), class:"btn btn-secondary" %>
       <% end %>
     </div>
   </div>
