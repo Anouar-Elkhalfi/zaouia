@@ -16,8 +16,11 @@ class MedicalCaresController < ApplicationController
 
   def create
     @medical_care = MedicalCare.new(medical_care_params)
-    @medical_care.save
-    redirect_to medical_care_path(@medical_care), notice: 'Medical Care was successfully created.'
+    if @medical_care.save
+        redirect_to medical_care_path(@medical_care), notice: 'Medical Care was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit

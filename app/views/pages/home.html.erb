@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col">
       <h1>Bienvenue HOME PAGE</h1>
-      <% if user_signed_in? %>
-        <p> Bienvenue, nous sommes content de vous revoir M. <%= current_user.email %></p>
-      <% else %>
-        <p>you are not login </p>
-      <% end %>
-      <%= link_to "Morocco-Medical cares", medical_cares_path %>
+        <% if user_signed_in? %>
+          <p> Bienvenue, nous sommes content de vous revoir M. <%= current_user.email %></p>
+        <% else %>
+          <p>you are not login </p>
+        <% end %>
+        <%= link_to "Morocco-Medical cares", medical_cares_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
