@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
-  devise_for :users
   root to: "pages#home"
+  devise_for :users
   resources :medical_cares do
     resources :reviews, only: [:new, :create]
   end
