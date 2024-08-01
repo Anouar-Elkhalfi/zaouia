@@ -3,7 +3,7 @@
     <div class="col">
       <h1>Bienvenue HOME PAGE</h1>
         <% if user_signed_in? %>
-          <p> Bienvenue, nous sommes content de vous revoir M. <%= current_user.email %></p>
+          <p> Bienvenue, nous sommes content de vous revoir M. <%= current_user.name %></p>
         <% else %>
           <p>you are not login </p>
         <% end %>
