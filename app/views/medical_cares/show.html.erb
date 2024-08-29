@@ -40,7 +40,9 @@
       <% @medical_care.reviews.each do |review| %>
         <li class="list-group-item">
           <%= review.content %>
-          <%= link_to "Delete", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+          <% if current_user == review.user %>
+            <%= link_to "Delete", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+          <% end %>
         </li>
       <% end %>
     </ul>
