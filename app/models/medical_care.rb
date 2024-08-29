@@ -1,5 +1,6 @@
 class MedicalCare < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  belongs_to :user
   # Validations
   validates :name, presence: true
   validates :address, presence: true
