@@ -1,7 +1,6 @@
 <div class="container">
   <h1>Medical Care Details</h1>
-  <%# @medical_care : Variable d'instance contenant une seule instance de MedicalCare,
-  utilisée dans l'action show et la vue associée %>
+  <%# @medical_care : Variable d'instance contenant une seule instance de MedicalCare %>
 
   <p>
     <strong>Name:</strong>
@@ -23,25 +22,27 @@
     <%= @medical_care.phone %>
   </p>
 
-  <%= link_to "Delete",
-    medical_care_path(@medical_care),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %>
+  <% if current_user.admin? %>
+    <%= link_to "Delete",
+      admin_medical_care_path(@medical_care),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+      class: "btn btn-danger" %>
 
-  <%= link_to "back", medical_cares_path %>
-  <%= link_to "edit", edit_medical_care_path %>
+    <%= link_to "Edit", edit_admin_medical_care_path(@medical_care), class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to "Back", medical_cares_path, class: "btn btn-secondary" %>
 
   <div class="review mt-5">
-
-      <p><strong>Reviews</strong></p>
-      <%= link_to "new review",  new_medical_care_review_path(@medical_care), class:"btn btn-secondary" %>
-        <ul class="list-group mt-3">
-          <% @medical_care.reviews.each do |review| %>
-            <li class="list-group-item">
-              <%= review.content %>
-              <%= link_to "Delete", review_path(review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-            </li>
-          <% end %>
-        </ul>
-        <br>
+    <p><strong>Reviews</strong></p>
+    <%= link_to "New Review", new_medical_care_review_path(@medical_care), class: "btn btn-secondary" %>
+    <ul class="list-group mt-3">
+      <% @medical_care.reviews.each do |review| %>
+        <li class="list-group-item">
+          <%= review.content %>
+          <%= link_to "Delete", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

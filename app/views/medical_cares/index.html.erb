@@ -29,7 +29,10 @@
           <% end %>
         </tbody>
       </table>
-          <%= link_to "new medical_care", new_medical_care_path, class: "btn btn-primary" %>
+          <% if current_user.admin? %>
+            <%= link_to "New Medical Care", new_admin_medical_care_path, class: "btn btn-primary" %>
+          <% end %>
+
           <%= link_to "Home", root_path, class: "btn btn-primary" %>
     </div>
   </div>
