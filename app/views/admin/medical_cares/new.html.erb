@@ -1,2 +1,6 @@
 <h1>Admin::MedicalCares#new</h1>
-<p>Find me in app/views/admin/medical_cares/new.html.erb</p>
+<h1>New Medical care</h1>
+
+<%= render "form", medical_care: @medical_care, class: "btn btn-primary" %>
+
+<%= link_to "back", medical_cares_path, class: "btn btn-primary" %>

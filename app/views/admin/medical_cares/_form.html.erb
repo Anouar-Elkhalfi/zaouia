@@ -1,0 +1,8 @@
+<!-- app/views/medical_cares/_form.html.erb -->
+<%= simple_form_for([:admin, @medical_care]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :rating %>
+  <%= f.input :phone %>
+  <%= f.submit %>
+<% end %>

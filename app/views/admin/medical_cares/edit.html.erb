@@ -1,2 +1,11 @@
 <h1>Admin::MedicalCares#edit</h1>
-<p>Find me in app/views/admin/medical_cares/edit.html.erb</p>
+<h1>update my medical care page</h1>
+<p>edit <%= @medical_care.name %></p>
+
+<%= render "form", medical_care: @medical_care %>
+
+<%= link_to "back", medical_care_path %>
+<%= link_to "Delete",
+  medical_care_path(@medical_care),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
