@@ -43,6 +43,9 @@
           <% if current_user == review.user %>
             <%= link_to "Delete", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
           <% end %>
+          <% if current_user.admin? %>
+            <%= link_to 'Delete Review', admin_review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+          <% end %>
         </li>
       <% end %>
     </ul>

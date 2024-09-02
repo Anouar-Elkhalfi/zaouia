@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # Routes réservées aux administrateurs pour la gestion des MedicalCares
   namespace :admin do
     resources :medical_cares, only: [:new, :create, :edit, :update, :destroy]
-    resources :reviews, only: [:destroy]
+    resources :reviews, only: [:index, :destroy]  # Ajoutez `index` ici
   end
 
   resources :reviews, only: [:destroy]
