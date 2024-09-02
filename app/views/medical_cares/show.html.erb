@@ -40,11 +40,12 @@
       <% @medical_care.reviews.each do |review| %>
         <li class="list-group-item">
           <%= review.content %>
-          <% if current_user == review.user %>
-            <%= link_to "Delete", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
-          <% end %>
           <% if current_user.admin? %>
+            <!-- Lien de suppression pour les admins -->
             <%= link_to 'Delete Review', admin_review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+          <% elsif current_user == review.user %>
+            <!-- Lien de suppression pour l'utilisateur propriétaire de la review -->
+            <%= link_to "Delete", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
           <% end %>
         </li>
       <% end %>
