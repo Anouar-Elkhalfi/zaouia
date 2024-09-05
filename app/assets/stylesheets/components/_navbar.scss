@@ -1,6 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background:#107ACA ;
+  .navbar-brand {
+    font-family: 'Poppins', sans-serif; /* Utilisez une police épurée comme Doctolib */
+    font-size: 1.5rem; /* Ajustez la taille pour que ça ressemble au logo de Doctolib */
+    font-weight: bold; /* Mettre le texte en gras */
+    color: #ffffff; /* Blanc pour contraster avec le fond bleu */
+    text-decoration: none; /* Retirer la sous-ligne du lien */
+
+    &:hover {
+      color: #cce7ff; /* Couleur de survol légèrement plus claire */
+    }
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
