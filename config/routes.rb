@@ -17,9 +17,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy]
 end
 
-
-
-
  # get 'medical_cares', to: 'medical_cares#index', as: 'medical_cares'
   # get 'medical_cares/new', to: 'medical_cares#new', as: 'new_medical_care'
   # get 'medical_cares/:id', to: 'medical_cares#show', as: 'medical_care'
