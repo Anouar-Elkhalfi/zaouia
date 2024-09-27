@@ -1,4 +1,5 @@
 <div class="container">
+  <!-- Ancien contenu avec le bouton -->
   <div class="row">
     <div class="col">
       <h1>Bienvenue HOME PAGE</h1>
@@ -13,20 +14,19 @@
     </div>
   </div>
 
-  <!-- Nouvelle section Fondateur sous forme de carte -->
+  <!-- Nouvelle section Fondateur sous forme de carte d'identité -->
   <div class="row mt-5">
-    <div class="col-md-6 offset-md-3">
-      <div class="card">
-        <!-- Image du fondateur -->
-        <img src="<%= asset_path('anouar-labo7.jpeg') %>" class="card-img-top img-fluid" alt="Fondateur">
+    <div class="col-md-4 offset-md-4">
+      <div class="card" style="width: 18rem;">
+        <!-- Image du fondateur, partie supérieure visible uniquement -->
+        <img src="<%= asset_path('anouar-labo7.jpeg') %>" class="card-img-top img-fluid" alt="Fondateur" style="height: 300px; object-fit: cover; object-position: top;">
 
         <!-- Contenu de la carte -->
-        <div class="card-body">
-          <h5 class="card-title">Notre Fondateur</h5>
+        <div class="card-body text-center">
+          <h5 class="card-title">Anouar - Fondateur</h5>
           <p class="card-text">
-            Découvrez notre fondateur, passionné par le développement de soins médicaux pour tous.
-            Avec une vision de transformation du système de santé, il s'efforce d'améliorer la qualité
-            de vie des patients à travers le monde.
+            Passionné par le développement de soins médicaux pour tous. Il œuvre pour améliorer la qualité
+            de vie des patients à travers le monde avec une vision transformative.
           </p>
         </div>
       </div>
