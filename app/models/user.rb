@@ -5,6 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  ROLES = %w(admin, medecin, particulier)
+  validates :role, inclusion: { in: ROLES}
+
   # Admin check
   def admin?
     self.admin
