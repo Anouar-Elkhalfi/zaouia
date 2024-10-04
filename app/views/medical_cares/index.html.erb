@@ -24,16 +24,15 @@
               <td><%= medical_care.rating %></td>
               <td><%= medical_care.address %></td>
               <td><%= medical_care.phone %></td>
-                  <%# Ici, medical_care est une variable locale dans le contexte de la boucle each.
-                  C'est pourquoi vous n'avez pas besoin du symbole @ devant medical_care %>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <!-- Bouton pour voir tous les rendez-vous -->
+      <%= link_to "Voir tous mes rendez-vous", appointments_path, class: "btn btn-primary" %>
           <% if current_user.admin? %>
             <%= link_to "New Medical Care", new_admin_medical_care_path, class: "btn btn-primary" %>
           <% end %>
-
           <%= link_to "Home", root_path, class: "btn btn-primary" %>
     </div>
   </div>

@@ -1,0 +1,17 @@
+<h1>Your Appointments</h1>
+<p>Connected as: <%= current_user.email if current_user %></p>
+
+<ul>
+  <% if @appointments.any? %>
+    <% @appointments.each do |appointment| %>
+      <li>
+        <%= link_to "Appointment on #{appointment.date} at #{appointment.time}", appointment_path(appointment) %>
+        <%= link_to 'Cancel', appointment_path(appointment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </li>
+    <% end %>
+  <% else %>
+    <p>No appointments found.</p>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Medical Cares", medical_cares_path, class: "btn btn-secondary" %>
