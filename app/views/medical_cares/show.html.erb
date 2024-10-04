@@ -1,7 +1,6 @@
 <div class="container">
-  <h1> This is the Index view</h1>
+  <h1> This is the Show view</h1>
   <h2>Medical Care Details</h2>
-  <%# @medical_care : Variable d'instance contenant une seule instance de MedicalCare %>
 
   <p>
     <strong>Name:</strong>
@@ -23,6 +22,43 @@
     <%= @medical_care.phone %>
   </p>
 
+  <!-- Nouveaux champs ajoutés ici -->
+  <p>
+    <strong>Specialty:</strong>
+    <%= @medical_care.specialty %>
+  </p>
+
+  <p>
+    <strong>Tarif:</strong>
+    <%= @medical_care.tarif %>
+  </p>
+
+  <p>
+    <strong>Payment Methods:</strong>
+    <%= @medical_care.payment_methods %>
+  </p>
+
+  <p>
+    <strong>Services:</strong>
+    <%= @medical_care.services %>
+  </p>
+
+  <p>
+    <strong>Presentation:</strong>
+    <%= @medical_care.presentation %>
+  </p>
+
+  <p>
+    <strong>Qualifications:</strong>
+    <%= @medical_care.qualifications %>
+  </p>
+
+  <p>
+    <strong>Hours:</strong>
+    <%= @medical_care.hours %>
+  </p>
+
+  <!-- Actions pour les admins -->
   <% if current_user.admin? %>
     <%= link_to "Delete",
       admin_medical_care_path(@medical_care),
@@ -34,6 +70,7 @@
 
   <%= link_to "Back", medical_cares_path, class: "btn btn-secondary" %>
 
+  <!-- Section des reviews -->
   <div class="review mt-5">
     <p><strong>Reviews</strong></p>
     <%= link_to "New Review", new_medical_care_review_path(@medical_care), class: "btn btn-secondary" %>

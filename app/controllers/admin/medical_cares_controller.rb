@@ -58,7 +58,7 @@ module Admin
     end
 
     def medical_care_params
-      params.require(:medical_care).permit(:name, :rating, :address, :phone, :user_id)
+      params.require(:medical_care).permit(:name, :rating, :address, :phone, :specialty, :tarif,:payment_methods, :services, :presentation, :qualifications, :hours)
     end
   end
 end
