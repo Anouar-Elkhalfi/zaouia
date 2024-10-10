@@ -1,6 +1,5 @@
 class MedicalCare < ApplicationRecord
   has_many :reviews, dependent: :destroy
-  has_many :appointments, dependent: :destroy  # Ajoute cette ligne pour lier MedicalCare et Appointment
   belongs_to :user
   # Validations
   validates :name, presence: true

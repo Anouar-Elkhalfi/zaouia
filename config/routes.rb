@@ -3,26 +3,16 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # Routes accessibles à tous les utilisateurs pour consulter les MedicalCares
-  resources :medical_cares, only: [:index, :show] do
-    resources :reviews, only: [:new, :create]
-
-    # Routes imbriquées pour les rendez-vous liés à un MedicalCare spécifique
-    resources :appointments, only: [:index, :new, :create]
+  # Routes pour les médecins et administrateurs pour gérer les MedicalCares
+  resources :medical_cares, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :reviews, only: [:new, :create]  # Imbrication des reviews dans les medical_cares
   end
 
-  # Routes pour gérer les rendez-vous des utilisateurs
-  resources :appointments, only: [:index, :show, :destroy]
-
-  # Routes réservées aux administrateurs pour la gestion des MedicalCares
-  namespace :admin do
-    resources :medical_cares, only: [:new, :create, :edit, :update, :destroy]
-    resources :reviews, only: [:index, :destroy]
-  end
-
-  # Routes pour la gestion des reviews
+  # Routes pour la gestion des reviews (destruction accessible aux admins)
   resources :reviews, only: [:destroy]
 end
+
+
 
 
 

@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1> This is the show view</h1>
-      <h2> Trouvez un rendez-vous avec votre medecin </h2>
+      <h1>This is the show view</h1>
+      <h2>Trouvez un rendez-vous avec votre medecin</h2>
       <table>
         <thead>
           <tr>
@@ -10,30 +10,37 @@
             <th>Note</th>
             <th>Addresse</th>
             <th>Numéro de Contact</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
         <tbody>
-          <%# @medical_cares est une collection d'objets MedicalCare %>
-          <%# Vous utilisez une boucle pour itérer sur chaque objet de cette collection %>
           <% @medical_cares.each do |medical_care| %>
             <tr>
-                  <%# À l'intérieur de la boucle, chaque objet individuel est référencé par une variable locale,
-                  généralement appelée medical_care (ou n'importe quel autre nom que vous choisissez). %>
               <td><%= link_to medical_care.name, medical_care_path(medical_care) %></td>
               <td><%= medical_care.rating %></td>
               <td><%= medical_care.address %></td>
               <td><%= medical_care.phone %></td>
+              <td>
+                <!-- Vérifier si le current_user est admin OU si c'est le propriétaire de la fiche -->
+                <% if current_user.admin? || medical_care.user == current_user %>
+                  <%= link_to 'Edit', edit_medical_care_path(medical_care), class: "btn btn-warning btn-sm" %>
+                  <%= link_to 'Delete', medical_care_path(medical_care), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <!-- Bouton pour voir tous les rendez-vous -->
-      <%= link_to "Voir tous mes rendez-vous", appointments_path, class: "btn btn-primary" %>
-          <% if current_user.admin? %>
-            <%= link_to "New Medical Care", new_admin_medical_care_path, class: "btn btn-primary" %>
-          <% end %>
-          <%= link_to "Home", root_path, class: "btn btn-primary" %>
+
+      <!-- Afficher le bouton "New Medical Care" uniquement si l'utilisateur est admin ou doctor -->
+      <% if current_user.admin? || current_user.doctor? %>
+        <%= link_to "New Medical Care", new_medical_care_path, class: "btn btn-primary" %>
+      <% end %>
+
+
+      <!-- Lien vers la page d'accueil -->
+      <%= link_to "Home", root_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@
       <h1>Bienvenue HOME PAGE</h1>
 
       <% if user_signed_in? %>
-        <p>Bienvenue, nous sommes content de vous revoir M. <%= current_user.name %></p>
+        <p>Bienvenue, nous sommes content de vous revoir M. <%= current_user.email %></p>
       <% else %>
         <p>Vous n'êtes pas connecté</p>
       <% end %>

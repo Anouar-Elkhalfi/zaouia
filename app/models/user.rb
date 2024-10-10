@@ -1,17 +1,19 @@
 class User < ApplicationRecord
-  # Relation avec les rendez-vous
-  has_many :appointments, dependent: :destroy  # <--- cette ligne doit être présente
+  # Devise inclus si tu l'utilises
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
-  # Autres relations et validations
-  has_many :medical_cares
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-  ROLES = %w(admin medecin particulier)
-  validates :role, inclusion: { in: ROLES }
-
-  # Vérification du rôle administrateur
+  # Méthode pour vérifier le rôle 'admin'
   def admin?
-    self.admin
+    role == 'admin'
+  end
+
+  # Méthode pour vérifier le rôle 'doctor'
+  def doctor?
+    role == 'doctor'
+  end
+
+  # Méthode pour vérifier le rôle 'patient'
+  def patient?
+    role == 'patient'
   end
 end

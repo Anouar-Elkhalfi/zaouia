@@ -10,14 +10,21 @@
           <%= f.input :email,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "email" }%>
+                      input_html: { autocomplete: "email" } %>
+
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" } %>
+
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+
+          <!-- Champ de sélection pour le rôle -->
+          <%= f.input :role, collection: [['Patient', 'patient'], ['Doctor', 'doctor']],
+                      prompt: "Choisissez votre rôle",
+                      required: true %>
         </div>
 
         <div class="form-actions">
