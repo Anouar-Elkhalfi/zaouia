@@ -1,18 +1,23 @@
 <!-- app/views/medical_cares/_form.html.erb -->
-<%= simple_form_for([@medical_care]) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :rating %>
-  <%= f.input :phone %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <%= simple_form_for([@medical_care]) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :rating %>
+      <%= f.input :phone %>
+      <!-- Nouveaux champs -->
+      <%= f.input :specialty %>
+      <%= f.input :tarif %>
+      <%= f.input :payment_methods %>
+      <%= f.input :services %>
+      <%= f.input :presentation %>
+      <%= f.input :qualifications %>
+      <%= f.input :hours %>
 
-  <!-- Nouveaux champs -->
-  <%= f.input :specialty %>
-  <%= f.input :tarif %>
-  <%= f.input :payment_methods %>
-  <%= f.input :services %>
-  <%= f.input :presentation %>
-  <%= f.input :qualifications %>
-  <%= f.input :hours %>
-
-  <%= f.submit 'Save Medical Care', class: "btn btn-primary" %>
-<% end %>
+      <%= f.submit 'Save Medical Care', class: "btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+</div>
